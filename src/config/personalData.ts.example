@@ -1,0 +1,149 @@
+/**
+ * 个人信息配置文件示例
+ * 
+ * 使用说明:
+ * 1. 复制此文件并重命名为 personalData.ts
+ * 2. 用您自己的信息替换示例数据
+ * 3. personalData.ts 已被添加到 .gitignore 中，不会被提交到公共仓库
+ */
+
+// 基本信息
+export const personalInfo = {
+  name: '您的姓名',
+  title: '您的职位',
+  bio: '简短的个人介绍，描述您的工作经历、专业领域和兴趣方向。',
+  avatar: '/images/your-avatar.png',
+};
+
+// 联系方式
+export const contactInfo = {
+  email: 'your.email@example.com',
+  phone: '+86 123-4567-8901',
+  wechat: '您的微信号',
+  other: {
+    // 可以添加其他联系方式
+  },
+};
+
+// 社交链接
+export const socialLinks = {
+  github: 'https://github.com/yourusername',
+  // 可以添加其他社交媒体链接
+};
+
+// Java和Spring Boot相关FAQ
+export const javaTechFAQs = [
+  {
+    question: "您在Java开发方面有哪些经验？",
+    answer: "在这里描述您的Java开发经验..."
+  },
+  {
+    question: "您如何使用Spring Boot构建企业级应用？",
+    answer: "在这里描述您使用Spring Boot的经验..."
+  },
+  // 添加更多FAQ...
+];
+
+// 工作经历
+export const workExperience = [
+  {
+    title: '职位名称',
+    company: '公司名称',
+    department: '部门名称',
+    startDate: new Date('2023-01-01'),
+    endDate: undefined, // 当前工作使用undefined
+    description: '工作描述...',
+    achievements: [
+      '成就1',
+      '成就2',
+      // 添加更多成就...
+    ],
+    technologies: [
+      '技术1', '技术2', '技术3',
+      // 添加更多技术...
+    ],
+  },
+  // 添加更多工作经历...
+];
+
+// 教育经历
+export const educationInfo = [
+  {
+    institution: '学校名称',
+    degree: '学位',
+    field: '专业',
+    startDate: new Date('2018-09-01'),
+    endDate: new Date('2022-07-01'),
+    description: '教育经历描述...',
+    achievements: [
+      '成就1',
+      '成就2',
+      // 添加更多成就...
+    ],
+    logo: '/images/school-logo.png',
+    website: 'https://www.school.edu/',
+  },
+  // 添加更多教育经历...
+];
+
+// 认证信息
+export const certificationInfo = [
+  {
+    name: '认证名称',
+    issuer: '颁发机构',
+    date: new Date('2023-01-15'),
+    expiryDate: new Date('2026-01-15'),
+    description: '认证描述...',
+    credentialUrl: 'https://example.com/credential',
+  },
+  // 添加更多认证...
+];
+
+// 技能分类
+export enum SkillLevel {
+  Beginner = '入门',
+  Intermediate = '熟练',
+  Advanced = '精通',
+  Expert = '专家',
+}
+
+// 技能信息
+export const skillsInfo = {
+  technical: [
+    {
+      name: '技能名称',
+      level: 90, // 1-100
+      levelText: SkillLevel.Expert,
+      description: '技能描述...',
+    },
+    // 添加更多技术技能...
+  ],
+  domain: [
+    {
+      name: '领域技能',
+      level: 85,
+      levelText: SkillLevel.Advanced,
+      description: '领域技能描述...',
+    },
+    // 添加更多领域技能...
+  ],
+  soft: [
+    {
+      name: '软技能',
+      level: 90,
+      levelText: SkillLevel.Expert,
+      description: '软技能描述...',
+    },
+    // 添加更多软技能...
+  ],
+};
+
+// 网站配置
+export const siteConfig = {
+  title: '个人岗位说明书',
+  description: '了解我的工作职责、技能专长和项目经验',
+  keywords: '关键词1, 关键词2, 关键词3',
+  author: '您的姓名',
+  themeColor: '#3B82F6', // 主题色
+  language: 'zh-CN',
+}; 

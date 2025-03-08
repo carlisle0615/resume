@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gradient-blue-start: #0071d5;
+    --gradient-blue-end: #00c6fb;
+    --gradient-purple-start: #7a2ff7;
+    --gradient-purple-end: #c084fc;
+    --gradient-pink-start: #db2777;
+    --gradient-pink-end: #f472b6;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-neutral-50 text-neutral-900 font-sans;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-shadow-sm;
+  }
+  
+  /* 添加滚动条样式 */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-300 rounded-full transition-colors duration-300;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-400;
+  }
+  
+  /* 添加选择文本样式 */
+  ::selection {
+    @apply bg-primary-200 text-primary-900;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
+  }
+  
+  /* 按钮样式升级 */
+  .btn {
+    @apply px-5 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500 text-white hover:shadow-lg hover:shadow-primary-500/30 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary-600 to-secondary-500 text-white hover:shadow-lg hover:shadow-secondary-500/30 focus:ring-secondary-500;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent-600 to-accent-500 text-white hover:shadow-lg hover:shadow-accent-500/30 focus:ring-accent-500;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+  }
+  
+  /* 卡片样式升级 */
+  .card {
+    @apply bg-white rounded-2xl shadow-soft overflow-hidden transition-all duration-300 hover:shadow-medium;
+  }
+  
+  .card-glass {
+    @apply glass-effect rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-medium;
+  }
+  
+  .card-hover {
+    @apply transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-medium;
+  }
+  
+  /* 部分样式升级 */
+  .section {
+    @apply py-20 md:py-28;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-5xl font-bold mb-10 text-center;
+  }
+  
+  .section-subtitle {
+    @apply text-xl md:text-2xl font-semibold mb-6;
+  }
+  
+  /* 添加渐变标题 */
+  .gradient-heading {
+    @apply text-gradient-primary animate-text-gradient;
+  }
+  
+  /* 添加玻璃效果容器 */
+  .glass-container {
+    @apply glass-effect rounded-2xl p-6 backdrop-blur-md;
+  }
+  
+  /* 添加闪光效果 */
+  .shimmer-effect {
+    @apply relative overflow-hidden;
+  }
+  
+  .shimmer-effect::after {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-shimmer bg-no-repeat animate-shimmer;
+  }
+  
+  /* 添加悬浮效果 */
+  .float-effect {
+    @apply animate-float;
+  }
+  
+  /* 添加3D卡片效果 */
+  .card-3d {
+    @apply transition-all duration-300 transform perspective-1000;
+  }
+  
+  .card-3d:hover {
+    @apply transform-gpu rotate-y-3 rotate-x-3 shadow-xl;
+  }
+  
+  /* 添加标签样式 */
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .tag-primary {
+    @apply bg-primary-100 text-primary-800;
+  }
+  
+  .tag-secondary {
+    @apply bg-secondary-100 text-secondary-800;
+  }
+  
+  .tag-accent {
+    @apply bg-accent-100 text-accent-800;
+  }
+  
+  /* 添加分割线样式 */
+  .divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent my-8;
+  }
+  
+  /* 添加图标按钮样式 */
+  .icon-btn {
+    @apply p-2 rounded-full transition-colors duration-200;
+  }
+  
+  .icon-btn-primary {
+    @apply text-primary-600 hover:bg-primary-100;
+  }
+  
+  .icon-btn-secondary {
+    @apply text-secondary-600 hover:bg-secondary-100;
+  }
+  
+  /* 添加输入框样式 */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+  
+  /* 添加徽章样式 */
+  .badge {
+    @apply absolute -top-2 -right-2 w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold;
+  }
+  
+  .badge-primary {
+    @apply bg-primary-600 text-white;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary-600 text-white;
+  }
+} 
