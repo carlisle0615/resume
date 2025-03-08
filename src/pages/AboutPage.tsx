@@ -1,17 +1,17 @@
-import { motion } from 'framer-motion';
-import { FC } from 'react';
-import { FiAward, FiCalendar } from 'react-icons/fi';
-import AnimatedBackground from '../components/animations/AnimatedBackground';
-import Card3D from '../components/animations/Card3D';
-import ParallaxSection from '../components/animations/ParallaxSection';
-import ScrollReveal from '../components/animations/ScrollReveal';
-import PageHeader from '../components/common/PageHeader';
-import certifications from '../data/certifications';
-import education from '../data/education';
-import experience from '../data/experience';
-import profile from '../data/profile';
-import skills from '../data/skills';
-import { SkillCategory } from '../types';
+import { motion } from "framer-motion";
+import { FC } from "react";
+import { FiAward, FiCalendar } from "react-icons/fi";
+import AnimatedBackground from "../components/animations/AnimatedBackground";
+import Card3D from "../components/animations/Card3D";
+import ParallaxSection from "../components/animations/ParallaxSection";
+import ScrollReveal from "../components/animations/ScrollReveal";
+import PageHeader from "../components/common/PageHeader";
+import certifications from "../data/certifications";
+import education from "../data/education";
+import experience from "../data/experience";
+import profile from "../data/profile";
+import skills from "../data/skills";
+import { SkillCategory } from "../types";
 
 const AboutPage: FC = () => {
   // 按类别分组技能
@@ -27,17 +27,17 @@ const AboutPage: FC = () => {
 
   // 格式化日期
   const formatDate = (date: Date): string => {
-    return date.toLocaleDateString('zh-CN', {
-      year: 'numeric',
-      month: 'long',
+    return date.toLocaleDateString("zh-CN", {
+      year: "numeric",
+      month: "long",
     });
   };
 
   return (
     <div className="bg-neutral-50">
       {/* 页面标题 */}
-      <PageHeader 
-        title="关于我" 
+      <PageHeader
+        title="关于我"
         subtitle="了解我的专业背景、技能和经验"
         variant="gradient"
         titleAnimation="wave"
@@ -49,11 +49,7 @@ const AboutPage: FC = () => {
         <AnimatedBackground variant="default" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <Card3D 
-              className="mb-12"
-              borderGradient
-              depth={15}
-            >
+            <Card3D className="mb-12" borderGradient depth={15}>
               <div className="p-8">
                 <div className="flex flex-col md:flex-row gap-8">
                   {/* 个人照片 */}
@@ -98,7 +94,9 @@ const AboutPage: FC = () => {
                       </div>
                       {profile.socialLinks && (
                         <div>
-                          <h3 className="text-lg font-semibold mb-2">社交媒体</h3>
+                          <h3 className="text-lg font-semibold mb-2">
+                            社交媒体
+                          </h3>
                           {profile.socialLinks.github && (
                             <p className="text-neutral-600">
                               GitHub: {profile.socialLinks.github}
@@ -243,7 +241,7 @@ const AboutPage: FC = () => {
                   <div className="absolute -left-12 w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-white">
                     <FiCalendar />
                   </div>
-                  
+
                   <Card3D depth={10} className="h-full">
                     <div className="p-6">
                       <div className="flex flex-col md:flex-row justify-between mb-2">
@@ -251,12 +249,13 @@ const AboutPage: FC = () => {
                           {exp.title}
                         </h3>
                         <span className="text-neutral-500">
-                          {formatDate(exp.startDate)} - {exp.endDate ? formatDate(exp.endDate) : '至今'}
+                          {formatDate(exp.startDate)} -{" "}
+                          {exp.endDate ? formatDate(exp.endDate) : "至今"}
                         </span>
                       </div>
                       <p className="text-lg font-medium mb-4">{exp.company}</p>
                       <p className="text-neutral-600 mb-4">{exp.description}</p>
-                      
+
                       {/* 成就 */}
                       {exp.achievements && exp.achievements.length > 0 && (
                         <div>
@@ -285,24 +284,61 @@ const AboutPage: FC = () => {
             <h2 className="text-3xl font-bold mb-12 text-center">教育背景</h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
             {education.map((edu, index) => (
-              <ScrollReveal
-                key={index}
-                variant="scale"
-                delay={index * 0.1}
-              >
-                <Card3D borderGradient borderColor="secondary" className="h-full">
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-secondary-600">
-                      {edu.degree}
-                    </h3>
-                    <p className="text-lg font-medium mb-2">{edu.institution}</p>
-                    <p className="text-neutral-500 mb-4">
-                      {formatDate(edu.startDate)} - {edu.endDate ? formatDate(edu.endDate) : '至今'}
-                    </p>
+              <ScrollReveal key={index} variant="scale" delay={index * 0.1}>
+                <Card3D
+                  borderGradient
+                  borderColor="secondary"
+                  className="h-full"
+                >
+                  <div className="p-8">
+                    <div className="flex items-center mb-6">
+                      {edu.logo && (
+                        <div className="mr-6 flex-shrink-0">
+                          <img
+                            src={edu.logo}
+                            alt={`${edu.institution} logo`}
+                            className="w-24 h-24 object-contain"
+                          />
+                        </div>
+                      )}
+                      <div>
+                        <h3 className="text-xl font-bold mb-2 text-secondary-600">
+                          {edu.degree} · {edu.field}
+                        </h3>
+                        <a
+                          href={edu.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-medium mb-2 hover:text-primary-600 transition-colors block"
+                        >
+                          {edu.institution}
+                        </a>
+                        <p className="text-neutral-500">
+                          {formatDate(edu.startDate)} -{" "}
+                          {edu.endDate ? formatDate(edu.endDate) : "至今"}
+                        </p>
+                      </div>
+                    </div>
+
                     {edu.description && (
-                      <p className="text-neutral-600">{edu.description}</p>
+                      <p className="text-neutral-600 mb-5">{edu.description}</p>
+                    )}
+
+                    {edu.achievements && edu.achievements.length > 0 && (
+                      <div className="mt-5">
+                        <h4 className="font-semibold text-neutral-700 mb-3">
+                          主要成就:
+                        </h4>
+                        <ul className="list-disc pl-5 space-y-2">
+                          {edu.achievements.map((achievement, i) => (
+                            <li key={i} className="text-neutral-600">
+                              {achievement}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
                   </div>
                 </Card3D>
@@ -322,11 +358,7 @@ const AboutPage: FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {certifications.map((cert, index) => (
-              <ScrollReveal
-                key={index}
-                variant="slideUp"
-                delay={index * 0.1}
-              >
+              <ScrollReveal key={index} variant="slideUp" delay={index * 0.1}>
                 <Card3D depth={5} className="h-full">
                   <div className="p-6">
                     <div className="w-12 h-12 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center mb-4 mx-auto">
@@ -352,4 +384,4 @@ const AboutPage: FC = () => {
   );
 };
 
-export default AboutPage; 
+export default AboutPage;
